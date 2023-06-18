@@ -1,13 +1,19 @@
 package com.estate.estatesystem.models.other;
 
 import com.estate.estatesystem.models.utility.Status;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "Ogloszenie")
 public class Ogloszenie {
 
     public static int iloscOgloszen = 0;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
     private LocalDate dataWystawienia;
     private LocalDate dataZakonczenia;
     private Status status;
@@ -16,6 +22,14 @@ public class Ogloszenie {
         this.dataWystawienia = dataWystawienia;
         this.dataZakonczenia = dataZakonczenia;
         this.status = status;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
     }
 
     public LocalDate getDataWystawienia() {

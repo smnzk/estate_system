@@ -1,7 +1,14 @@
 package com.estate.estatesystem.models.other;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Nieruchomosc")
 public class Nieruchomosc {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private double cena;
     private double powierzchnia;
     private String adres;
@@ -9,6 +16,14 @@ public class Nieruchomosc {
     public Nieruchomosc(double powierzchnia, String adres) {
         this.powierzchnia = powierzchnia;
         this.adres = adres;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public double getCena() {

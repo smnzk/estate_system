@@ -1,13 +1,28 @@
 package com.estate.estatesystem.models.other;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Dzialka")
 public class Dzialka {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private double powierzchnia;
     private String zagospodarowanie;
 
     public Dzialka(double powierzchnia, String zagospodarowanie) {
         this.powierzchnia = powierzchnia;
         this.zagospodarowanie = zagospodarowanie;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public double getPowierzchnia() {

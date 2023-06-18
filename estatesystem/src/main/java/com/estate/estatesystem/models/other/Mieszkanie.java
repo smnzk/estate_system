@@ -1,7 +1,14 @@
 package com.estate.estatesystem.models.other;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Mieszkanie")
 public class Mieszkanie extends Nieruchomosc{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private boolean uwzgledniaGaraz;
     private int pietroBloku;
     private int numerMieszkania;
@@ -11,6 +18,16 @@ public class Mieszkanie extends Nieruchomosc{
         this.uwzgledniaGaraz = uwzgledniaGaraz;
         this.pietroBloku = pietroBloku;
         this.numerMieszkania = numerMieszkania;
+    }
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public boolean isUwzgledniaGaraz() {

@@ -8,7 +8,7 @@ public abstract class Osoba {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
     private String imie;
     private String nazwisko;
     private String adres;
@@ -25,11 +25,11 @@ public abstract class Osoba {
         return imie;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
