@@ -1,16 +1,20 @@
 package com.estate.estatesystem.models.people;
 
 import com.estate.estatesystem.models.utility.Specjalizacja;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 import java.util.List;
 
+@Entity
+@Table(name = "MlodszyOprowadzajacy")
 public class MlodszyOprowadzajacy extends Oprowadzajacy{
 
     private double bonusOdOpinii;
     private double calkowitaPensja;
 
-    public MlodszyOprowadzajacy(int numerPracownika, double wynagrodzenie, String hasloDoSystemu, Specjalizacja specjalizacja, List<String> jezyki, double bonusOdOpinii, double calkowitaPensja) throws Exception {
-        super(numerPracownika, wynagrodzenie, hasloDoSystemu, specjalizacja, jezyki);
+    public MlodszyOprowadzajacy(String imie, String nazwisko, String adres, String numberTelefonu, Integer numerPracownika, double wynagrodzenie, String hasloDoSystemu, Specjalizacja specjalizacja, List<String> jezyki, double bonusOdOpinii, double calkowitaPensja) throws Exception {
+        super(imie, nazwisko, adres, numberTelefonu, numerPracownika, wynagrodzenie, hasloDoSystemu, specjalizacja, jezyki);
         if (bonusOdOpinii > 0.2) {
             throw new Exception("Bonus nie może być większy niż 20%");
         }

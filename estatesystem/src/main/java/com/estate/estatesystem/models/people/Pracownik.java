@@ -1,8 +1,16 @@
 package com.estate.estatesystem.models.people;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+
 import java.util.HashSet;
 
-public class Pracownik {
+@Entity
+@Table(name = "Pracownik")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Pracownik extends Osoba{
 
     private static final HashSet<Integer> numeryPracownikow = new HashSet<>();
 
@@ -10,7 +18,8 @@ public class Pracownik {
     private double wynagrodzenie;
     private String hasloDoSystemu;
 
-    public Pracownik(Integer numerPracownika, double wynagrodzenie, String hasloDoSystemu) throws Exception {
+    public Pracownik(String imie, String nazwisko, String adres, String numberTelefonu, Integer numerPracownika, double wynagrodzenie, String hasloDoSystemu) throws Exception {
+        super(imie, nazwisko, adres, numberTelefonu);
         if (numeryPracownikow.contains(numerPracownika)) {
             throw new Exception("Numer pracownika musi być unikalny");
         }

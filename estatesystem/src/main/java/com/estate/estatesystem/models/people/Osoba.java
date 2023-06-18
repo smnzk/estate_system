@@ -1,15 +1,36 @@
 package com.estate.estatesystem.models.people;
 
+import jakarta.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Osoba {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
     private String imie;
     private String nazwisko;
     private String adres;
     private String numberTelefonu;
 
+    public Osoba(String imie, String nazwisko, String adres, String numberTelefonu) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.adres = adres;
+        this.numberTelefonu = numberTelefonu;
+    }
 
     public String getImie() {
         return imie;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setImie(String imie) {
