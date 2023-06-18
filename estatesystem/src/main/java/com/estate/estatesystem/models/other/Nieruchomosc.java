@@ -1,5 +1,6 @@
 package com.estate.estatesystem.models.other;
 
+import com.estate.estatesystem.models.people.WlascicielNieruchomosci;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,10 @@ public class Nieruchomosc {
     private double cena;
     private double powierzchnia;
     private String adres;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wlasciciel_id", referencedColumnName = "id")
+    private WlascicielNieruchomosci wlasciciel;
 
     public Nieruchomosc(double powierzchnia, String adres) {
         this.powierzchnia = powierzchnia;
@@ -48,5 +53,9 @@ public class Nieruchomosc {
 
     public void setAdres(String adres) {
         this.adres = adres;
+    }
+
+    public WlascicielNieruchomosci getWlasciciel() {
+        return wlasciciel;
     }
 }

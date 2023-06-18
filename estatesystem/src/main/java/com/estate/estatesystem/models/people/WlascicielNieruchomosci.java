@@ -1,9 +1,13 @@
 package com.estate.estatesystem.models.people;
 
+import com.estate.estatesystem.models.other.Nieruchomosc;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "WlascicielNieruchomosci")
@@ -13,6 +17,10 @@ public class WlascicielNieruchomosci extends Osoba{
 
     private Integer numerWlasciciela;
     private String numerKontaktowy;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "wlasciciel")
+    private Set<Nieruchomosc> nieruchomoscSet = new HashSet<>();
 
     public WlascicielNieruchomosci(String imie, String nazwisko, String adres, String numberTelefonu, Integer numerWlasciciela, String numerKontaktowy) throws Exception {
         super(imie, nazwisko, adres, numberTelefonu);
@@ -41,5 +49,9 @@ public class WlascicielNieruchomosci extends Osoba{
 
     public void setNumerKontaktowy(String numerKontaktowy) {
         this.numerKontaktowy = numerKontaktowy;
+    }
+
+    public Set<Nieruchomosc> getNieruchomoscSet() {
+        return nieruchomoscSet;
     }
 }
