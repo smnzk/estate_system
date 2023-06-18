@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EstatesystemApplication {
+public class EstateSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EstatesystemApplication.class, args);
+		SpringApplication.run(EstateSystemApplication.class, args);
 	}
 
 }
