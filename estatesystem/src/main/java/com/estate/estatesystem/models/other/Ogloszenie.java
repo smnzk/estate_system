@@ -1,16 +1,18 @@
 package com.estate.estatesystem.models.other;
 
+import com.estate.estatesystem.models.utility.Status;
+
 import java.time.LocalDate;
 
 public class Ogloszenie {
 
-    public static int iloscOgloszen;
+    public static int iloscOgloszen = 0;
 
     private LocalDate dataWystawienia;
     private LocalDate dataZakonczenia;
-    private String status;
+    private Status status;
 
-    public Ogloszenie(LocalDate dataWystawienia, LocalDate dataZakonczenia, String status) {
+    public Ogloszenie(LocalDate dataWystawienia, LocalDate dataZakonczenia, Status status) {
         this.dataWystawienia = dataWystawienia;
         this.dataZakonczenia = dataZakonczenia;
         this.status = status;
@@ -32,11 +34,11 @@ public class Ogloszenie {
         this.dataZakonczenia = dataZakonczenia;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }

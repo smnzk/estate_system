@@ -1,20 +1,30 @@
 package com.estate.estatesystem.models.people;
 
+import java.util.HashSet;
+
 public class Klient extends Osoba{
 
-    private int numerKlienta;
+    private static final HashSet<Integer> numeryKlientow = new HashSet<>();
+
+    private Integer numerKlienta;
     private double budzet;
 
-    public Klient(int numerKlienta, double budzet) {
+    public Klient(Integer numerKlienta, double budzet) throws Exception {
+        if (numeryKlientow.contains(numerKlienta)) {
+            throw new Exception("Numer klienta musi być unikalny");
+        }
         this.numerKlienta = numerKlienta;
         this.budzet = budzet;
     }
 
-    public int getNumerKlienta() {
+    public Integer getNumerKlienta() {
         return numerKlienta;
     }
 
-    public void setNumerKlienta(int numerKlienta) {
+    public void setNumerKlienta(Integer numerKlienta) throws Exception {
+        if (numeryKlientow.contains(numerKlienta)) {
+            throw new Exception("Numer klienta musi być unikalny");
+        }
         this.numerKlienta = numerKlienta;
     }
 

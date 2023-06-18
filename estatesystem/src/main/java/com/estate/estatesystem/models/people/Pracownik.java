@@ -1,22 +1,33 @@
 package com.estate.estatesystem.models.people;
 
+import java.util.HashSet;
+
 public class Pracownik {
 
-    private int numerPracownika;
+    private static final HashSet<Integer> numeryPracownikow = new HashSet<>();
+
+    private Integer numerPracownika;
     private double wynagrodzenie;
     private String hasloDoSystemu;
 
-    public Pracownik(int numerPracownika, double wynagrodzenie, String hasloDoSystemu) {
+    public Pracownik(Integer numerPracownika, double wynagrodzenie, String hasloDoSystemu) throws Exception {
+        if (numeryPracownikow.contains(numerPracownika)) {
+            throw new Exception("Numer pracownika musi być unikalny");
+        }
         this.numerPracownika = numerPracownika;
         this.wynagrodzenie = wynagrodzenie;
         this.hasloDoSystemu = hasloDoSystemu;
+        numeryPracownikow.add(numerPracownika);
     }
 
-    public int getNumerPracownika() {
+    public Integer getNumerPracownika() {
         return numerPracownika;
     }
 
-    public void setNumerPracownika(int numerPracownika) {
+    public void setNumerPracownika(Integer numerPracownika) throws Exception {
+        if (numeryPracownikow.contains(numerPracownika)) {
+            throw new Exception("Numer pracownika musi być unikalny");
+        }
         this.numerPracownika = numerPracownika;
     }
 
