@@ -22,6 +22,10 @@ public class MlodszyOprowadzajacy extends Oprowadzajacy{
         this.calkowitaPensja = calkowitaPensja;
     }
 
+    public MlodszyOprowadzajacy() {
+
+    }
+
     public double getBonusOdOpinii() {
         return bonusOdOpinii;
     }

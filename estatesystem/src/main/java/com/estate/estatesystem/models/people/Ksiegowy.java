@@ -21,6 +21,10 @@ public class Ksiegowy extends Pracownik{
         this.stazPracy = stazPracy;
     }
 
+    public Ksiegowy() {
+
+    }
+
     public List<String> getObowiazki() {
         return obowiazki;
     }

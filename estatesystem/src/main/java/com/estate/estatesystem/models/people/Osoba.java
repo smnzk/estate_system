@@ -21,6 +21,10 @@ public abstract class Osoba {
         this.numberTelefonu = numberTelefonu;
     }
 
+    public Osoba(){
+
+    }
+
     public String getImie() {
         return imie;
     }

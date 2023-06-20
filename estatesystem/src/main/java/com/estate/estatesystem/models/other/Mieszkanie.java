@@ -20,6 +20,10 @@ public class Mieszkanie extends Nieruchomosc{
         this.numerMieszkania = numerMieszkania;
     }
 
+    public Mieszkanie(){
+
+    }
+
     @Override
     public Long getId() {
         return id;

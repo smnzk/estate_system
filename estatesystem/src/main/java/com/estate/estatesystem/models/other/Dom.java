@@ -20,6 +20,10 @@ public class Dom extends Nieruchomosc{
         this.pozaMiastem = pozaMiastem;
     }
 
+    public Dom(){
+
+    }
+
     @Override
     public Long getId() {
         return id;

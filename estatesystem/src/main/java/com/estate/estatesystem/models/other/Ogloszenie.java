@@ -41,6 +41,8 @@ public class Ogloszenie {
         this.status = status;
     }
 
+    public Ogloszenie(){}
+
     public Long getId() {
         return Id;
     }

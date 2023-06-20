@@ -26,6 +26,10 @@ public class Oprowadzajacy extends Pracownik{
         this.jezyki = jezyki;
     }
 
+    public Oprowadzajacy() {
+
+    }
+
     public Specjalizacja getSpecjalizacja() {
         return specjalizacja;
     }

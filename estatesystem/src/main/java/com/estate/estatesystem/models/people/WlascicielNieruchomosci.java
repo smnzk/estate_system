@@ -32,6 +32,10 @@ public class WlascicielNieruchomosci extends Osoba{
         numeryWlascicieli.add(numerWlasciciela);
     }
 
+    public WlascicielNieruchomosci() {
+
+    }
+
     public Integer getNumerWlasciciela() {
         return numerWlasciciela;
     }

@@ -22,6 +22,10 @@ public class Sprzedawca extends Oprowadzajacy{
         this.calkowitaPensja = calkowitaPensja;
     }
 
+    public Sprzedawca() {
+
+    }
+
     public double getBonusOdSprzedazy() {
         return bonusOdSprzedazy;
     }

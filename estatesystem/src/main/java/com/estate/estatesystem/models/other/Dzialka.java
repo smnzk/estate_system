@@ -20,6 +20,10 @@ public class Dzialka {
         this.zagospodarowanie = zagospodarowanie;
     }
 
+    public Dzialka(){
+
+    }
+
     public Long getId() {
         return id;
     }

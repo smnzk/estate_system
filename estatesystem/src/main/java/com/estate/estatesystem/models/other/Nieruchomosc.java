@@ -27,6 +27,9 @@ public class Nieruchomosc {
         this.adres = adres;
     }
 
+    public Nieruchomosc() {
+    }
+
     public Long getId() {
         return id;
     }

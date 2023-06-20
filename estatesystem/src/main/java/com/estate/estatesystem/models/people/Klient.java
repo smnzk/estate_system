@@ -32,6 +32,10 @@ public class Klient extends Osoba{
         numeryKlientow.add(numerKlienta);
     }
 
+    public Klient(){
+
+    }
+
     public Integer getNumerKlienta() {
         return numerKlienta;
     }

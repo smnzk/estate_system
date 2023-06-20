@@ -29,6 +29,10 @@ public class Pracownik extends Osoba{
         numeryPracownikow.add(numerPracownika);
     }
 
+    public Pracownik() {
+
+    }
+
     public Integer getNumerPracownika() {
         return numerPracownika;
     }

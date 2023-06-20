@@ -17,6 +17,10 @@ public class WpisNaStronie {
         this.pobieranaOplata = pobieranaOplata;
     }
 
+    public WpisNaStronie(){
+
+    }
+
     public Long getId() {
         return id;
     }
