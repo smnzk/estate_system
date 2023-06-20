@@ -1,12 +1,13 @@
 package com.estate.estatesystem.models.people;
 
+import com.estate.estatesystem.models.other.Ogloszenie;
 import com.estate.estatesystem.models.utility.Specjalizacja;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Oprowadzajacy")
@@ -14,6 +15,10 @@ import java.util.List;
 public class Oprowadzajacy extends Pracownik{
     private Specjalizacja specjalizacja;
     private List<String> jezyki;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "oprowadzajacy")
+    private Set<Ogloszenie> ogloszenieSet = new HashSet<>();
 
     public Oprowadzajacy(String imie, String nazwisko, String adres, String numberTelefonu, Integer numerPracownika, double wynagrodzenie, String hasloDoSystemu, Specjalizacja specjalizacja, List<String> jezyki) throws Exception {
         super(imie, nazwisko, adres, numberTelefonu, numerPracownika, wynagrodzenie, hasloDoSystemu);
@@ -38,5 +43,9 @@ public class Oprowadzajacy extends Pracownik{
             throw new Exception("Oprowadzający musi znać co najmniej jeden język");
         }
         this.jezyki = jezyki;
+    }
+
+    public Set<Ogloszenie> getOgloszenieSet() {
+        return ogloszenieSet;
     }
 }

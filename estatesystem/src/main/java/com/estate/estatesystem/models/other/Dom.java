@@ -11,6 +11,10 @@ public class Dom extends Nieruchomosc{
     private Long id;
     private boolean pozaMiastem;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dzialka_id", referencedColumnName = "id")
+    private Dzialka dzialka;
+
     public Dom(double powierzchnia, String adres, boolean pozaMiastem) {
         super(powierzchnia, adres);
         this.pozaMiastem = pozaMiastem;
@@ -32,5 +36,9 @@ public class Dom extends Nieruchomosc{
 
     public void setPozaMiastem(boolean pozaMiastem) {
         this.pozaMiastem = pozaMiastem;
+    }
+
+    public Dzialka getDzialka() {
+        return dzialka;
     }
 }

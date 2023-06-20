@@ -12,6 +12,9 @@ public class Dzialka {
     private double powierzchnia;
     private String zagospodarowanie;
 
+    @OneToOne(mappedBy = "dzialka")
+    private Dom dom;
+
     public Dzialka(double powierzchnia, String zagospodarowanie) {
         this.powierzchnia = powierzchnia;
         this.zagospodarowanie = zagospodarowanie;
@@ -39,5 +42,9 @@ public class Dzialka {
 
     public void setZagospodarowanie(String zagospodarowanie) {
         this.zagospodarowanie = zagospodarowanie;
+    }
+
+    public Dom getDom() {
+        return dom;
     }
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Nieruchomosc")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Nieruchomosc {
 
     @Id
@@ -17,6 +18,9 @@ public class Nieruchomosc {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "wlasciciel_id", referencedColumnName = "id")
     private WlascicielNieruchomosci wlasciciel;
+
+    @OneToOne(mappedBy = "nieruchomosc")
+    private Ogloszenie ogloszenie;
 
     public Nieruchomosc(double powierzchnia, String adres) {
         this.powierzchnia = powierzchnia;
@@ -57,5 +61,9 @@ public class Nieruchomosc {
 
     public WlascicielNieruchomosci getWlasciciel() {
         return wlasciciel;
+    }
+
+    public Ogloszenie getOgloszenie() {
+        return ogloszenie;
     }
 }
