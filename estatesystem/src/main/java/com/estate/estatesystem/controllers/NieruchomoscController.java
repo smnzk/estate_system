@@ -20,16 +20,11 @@ public class NieruchomoscController {
     }
 
 
-    @GetMapping(path = "estates")
-    String getEstates(Model model) {
-        model.addAttribute("something", "THIS IS THE VALUE");
-        var estates = nieruchomoscService.getEstates();
+    @GetMapping("{ownerId}")
+    String getEstates(Model model, @PathVariable long ownerId) {
+        System.out.println("HERE");
+        var estates = nieruchomoscService.getEstatesByOwnerId(ownerId);
         model.addAttribute("something2", estates);
         return "estates";
-    }
-
-    @GetMapping("/{nazwisko}")
-    String getYe(Model model, @PathVariable String nazwisko) {
-        return "index";
     }
 }

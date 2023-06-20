@@ -1,23 +1,27 @@
 package com.estate.estatesystem.services;
 
 import com.estate.estatesystem.models.other.Nieruchomosc;
+import com.estate.estatesystem.repositories.DomRepository;
 import com.estate.estatesystem.repositories.MieszkanieRepository;
+import com.estate.estatesystem.repositories.NieruchomoscRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class NieruchomoscService {
 
     @Autowired
-    private final MieszkanieRepository mieszkanieRepository;
+    private final NieruchomoscRepository nieruchomoscRepository;
 
-    public NieruchomoscService(MieszkanieRepository mieszkanieRepository) {
-        this.mieszkanieRepository = mieszkanieRepository;
+    public NieruchomoscService(NieruchomoscRepository nieruchomoscRepository) {
+        this.nieruchomoscRepository = nieruchomoscRepository;
     }
 
-    public List<Nieruchomosc> getEstates(){
-        return mieszkanieRepository.findAll();
+    public List<Nieruchomosc> getEstatesByOwnerId(long id){
+
+        return nieruchomoscRepository.findByWlascicielId(id);
     }
 }
