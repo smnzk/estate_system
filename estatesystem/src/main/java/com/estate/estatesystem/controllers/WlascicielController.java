@@ -1,5 +1,6 @@
 package com.estate.estatesystem.controllers;
 
+import com.estate.estatesystem.models.utility.OsobaGuiData;
 import com.estate.estatesystem.services.WlascicielService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,8 @@ public class WlascicielController {
     @GetMapping("owners")
     String getOwners(Model model) {
         var owners = wlascicielService.getOwners();
-        model.addAttribute("owners", owners);
+        var ownersGui = owners.stream().map(o -> new OsobaGuiData(o, "estates/" + o.getId())).toList();
+        model.addAttribute("owners", ownersGui);
         return "owners";
     }
 }

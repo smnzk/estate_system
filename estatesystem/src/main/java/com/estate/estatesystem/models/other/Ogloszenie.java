@@ -22,6 +22,7 @@ public class Ogloszenie {
     private LocalDate dataWystawienia;
     private LocalDate dataZakonczenia;
     private Status status;
+    private String opis;
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
@@ -77,5 +78,21 @@ public class Ogloszenie {
 
     public Oprowadzajacy getOprowadzajacy() {
         return oprowadzajacy;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public Set<Klient> getKlientSet() {
+        return klientSet;
+    }
+
+    public Nieruchomosc getNieruchomosc() {
+        return nieruchomosc;
+    }
+
+    public void setOpis(String opis) {
+        this.opis = opis;
     }
 }

@@ -1,5 +1,6 @@
 package com.estate.estatesystem.services;
 
+import com.estate.estatesystem.models.other.Nieruchomosc;
 import com.estate.estatesystem.models.people.Osoba;
 import com.estate.estatesystem.models.people.WlascicielNieruchomosci;
 import com.estate.estatesystem.repositories.WlascicielRepository;
@@ -18,7 +19,7 @@ public class WlascicielService {
         this.wlascicielRepository = wlascicielRepository;
     }
 
-    public List<Osoba> getOwners(){
+    public List<WlascicielNieruchomosci> getOwners(){
         return wlascicielRepository.findAll();
     }
 }

@@ -19,11 +19,11 @@
     </thead>
     <tbody>
         <tr th:each="estate: ${something2}">
-            <td th:text="${estate.adres}"></td>
-            <td th:text="${estate.cena}"></td>
-            <td th:text="${estate.powierzchnia}"></td>
-            <td th:text="${estate.wlasciciel.nazwisko}"></td>
-            <td><form action="#" th:action="${estate.wlasciciel.nazwisko}" method="get">
+            <td th:text="${estate.nieruchomosc.adres}"></td>
+            <td th:text="${estate.nieruchomosc.cena}"></td>
+            <td th:text="${estate.nieruchomosc.powierzchnia}"></td>
+            <td th:text="${estate.nieruchomosc.wlasciciel.nazwisko}"></td>
+            <td><form action="#" th:action="${estate.link}" method="get">
                 <input type="submit" value="Submit" />
             </form></td>
         </tr>

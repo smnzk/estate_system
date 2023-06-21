@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+<div align="center">
+    <h1>Dodaj opis nieruchomości</h1>
+    <form action="#" th:action="@{/api/agents/selectAgent}" method="post" th:object="${sellInfo}">
+        <textarea rows="20" cols="50" th:field="*{data}"></textarea>
+        <br/>
+        <button type="submit">Add info</button>
+    </form>
+</div>
+</body>
+</html>

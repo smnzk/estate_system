@@ -1,12 +1,12 @@
 package com.estate.estatesystem.controllers;
 
+import com.estate.estatesystem.models.utility.SellInfo;
+import com.estate.estatesystem.models.utility.NieruchomoscGuiData;
 import com.estate.estatesystem.services.NieruchomoscService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("api")
@@ -20,11 +20,20 @@ public class NieruchomoscController {
     }
 
 
-    @GetMapping("{ownerId}")
+    @GetMapping("estates/{ownerId}")
     String getEstates(Model model, @PathVariable long ownerId) {
-        System.out.println("HERE");
         var estates = nieruchomoscService.getEstatesByOwnerId(ownerId);
-        model.addAttribute("something2", estates);
+        var estatesGui = estates.stream()
+                .map(e -> new NieruchomoscGuiData(e, "sell/" + e.getId())).toList();
+        model.addAttribute("something2", estatesGui);
         return "estates";
+    }
+
+    @GetMapping("estates/sell/{estateId}")
+    String sellEstate(Model model, @PathVariable long estateId) {
+        SellInfo sellInfo = new SellInfo();
+        sellInfo.setNieruchomoscId(estateId);
+        model.addAttribute("sellInfo", sellInfo);
+        return "sell_estate";
     }
 }

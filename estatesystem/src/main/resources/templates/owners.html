@@ -18,10 +18,10 @@
     </thead>
     <tbody>
     <tr th:each="owner: ${owners}">
-        <td th:text="${owner.imie}"></td>
-        <td th:text="${owner.nazwisko}"></td>
-        <td th:text="${owner.numberTelefonu}"></td>
-        <td><form action="#" th:action="${owner.id}" method="get">
+        <td th:text="${owner.osoba.imie}"></td>
+        <td th:text="${owner.osoba.nazwisko}"></td>
+        <td th:text="${owner.osoba.numberTelefonu}"></td>
+        <td><form action="#" th:action="${owner.link}" method="get">
             <input type="submit" value="Submit" />
         </form></td>
     </tr>
