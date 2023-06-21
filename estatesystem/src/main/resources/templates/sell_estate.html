@@ -9,6 +9,8 @@
     <h1>Dodaj opis nieruchomości</h1>
     <form action="#" th:action="@{/api/agents/selectAgent}" method="post" th:object="${sellInfo}">
         <textarea rows="20" cols="50" th:field="*{data}"></textarea>
+        <br>
+        <input type="text" th:field="*{nieruchomoscId}"><br/>
         <br/>
         <button type="submit">Add info</button>
     </form>

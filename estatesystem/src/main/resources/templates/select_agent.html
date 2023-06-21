@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h1>XDD</h1>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Imie</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Numer telefonu</th>
+        <th scope="col">LINK</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="agent: ${agentsGui}">
+        <td th:text="${agent.oprowadzajacy.imie}"></td>
+        <td th:text="${agent.oprowadzajacy.nazwisko}"></td>
+        <td th:text="${agent.oprowadzajacy.numberTelefonu}"></td>
+        <td><form action="#" th:action="${agent.link}" method="post" th:object="${sellInfo}">
+            <input type="text" th:field="*{data}"><br/>
+            <input type="text" th:field="*{nieruchomoscId}"><br/>
+            <input type="submit" value="Submit" />
+        </form></td>
+    </tr>
+    </tbody>
+</table>
+
+
 </body>
 </html>

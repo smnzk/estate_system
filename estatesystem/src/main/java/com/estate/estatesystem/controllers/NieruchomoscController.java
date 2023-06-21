@@ -34,6 +34,7 @@ public class NieruchomoscController {
         SellInfo sellInfo = new SellInfo();
         sellInfo.setNieruchomoscId(estateId);
         model.addAttribute("sellInfo", sellInfo);
+        model.addAttribute("estateId", estateId);
         return "sell_estate";
     }
 }

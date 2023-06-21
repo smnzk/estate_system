@@ -95,4 +95,12 @@ public class Ogloszenie {
     public void setOpis(String opis) {
         this.opis = opis;
     }
+
+    public void setOprowadzajacy(Oprowadzajacy oprowadzajacy) {
+        this.oprowadzajacy = oprowadzajacy;
+    }
+
+    public void setNieruchomosc(Nieruchomosc nieruchomosc) {
+        this.nieruchomosc = nieruchomosc;
+    }
 }
