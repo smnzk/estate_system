@@ -44,8 +44,6 @@ public class OprowadzajacyController {
 
     @PostMapping("agents/add/{agentId}")
     public String createNotice(Model model, @ModelAttribute("sellInfo") SellInfo sellInfo, @PathVariable Long agentId){
-        System.out.println(sellInfo.getNieruchomoscId());
-        System.out.println(sellInfo.getData());
 
         var estateOpt = nieruchomoscService.getEstateById(sellInfo.getNieruchomoscId());
         var estate = estateOpt.get();
@@ -61,5 +59,10 @@ public class OprowadzajacyController {
         ogloszenieService.addOgloszenie(ogloszenie);
 
         return "confirmation";
+    }
+
+    @GetMapping("agents/out")
+    String out() {
+        return "out";
     }
 }

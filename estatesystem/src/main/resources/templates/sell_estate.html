@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <title>User Registration</title>
 </head>
-<body>
+<body style="background-color: #373838; text-align: center">
+<h1 style="color: white">PROPERTY SYSTEM</h1>
+<br>
 <div align="center">
-    <h1>Dodaj opis nieruchomości</h1>
+    <h2 style="color: white">Dodaj opis nieruchomości</h2>
     <form action="#" th:action="@{/api/agents/selectAgent}" method="post" th:object="${sellInfo}">
         <textarea rows="20" cols="50" th:field="*{data}"></textarea>
         <br>
         <input type="text" th:field="*{nieruchomoscId}"><br/>
         <br/>
-        <button type="submit">Add info</button>
+        <button type="submit">Dodaj</button>
     </form>
 </div>
+<br>
+<form action="#" th:action="@{out}" method="get">
+    <input type="submit" value="ANULUJ" />
+</form>
 </body>
 </html>

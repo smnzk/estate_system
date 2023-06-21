@@ -37,4 +37,14 @@ public class NieruchomoscController {
         model.addAttribute("estateId", estateId);
         return "sell_estate";
     }
+
+    @GetMapping("estates/out")
+    String out() {
+        return "out";
+    }
+
+    @GetMapping("estates/sell/out")
+    String out2() {
+        return "out";
+    }
 }

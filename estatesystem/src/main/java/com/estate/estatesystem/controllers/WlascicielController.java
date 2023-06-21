@@ -25,6 +25,12 @@ public class WlascicielController {
         var owners = wlascicielService.getOwners();
         var ownersGui = owners.stream().map(o -> new OsobaGuiData(o, "estates/" + o.getId())).toList();
         model.addAttribute("owners", ownersGui);
+
         return "owners";
+    }
+
+    @GetMapping("out")
+    String out() {
+        return "out";
     }
 }
