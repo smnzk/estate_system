@@ -4,6 +4,7 @@ public class SellInfo {
 
     private Long nieruchomoscId;
     private String data;
+    private String website;
 
     public SellInfo(String data) {
         this.data = data;
@@ -28,5 +29,13 @@ public class SellInfo {
 
     public void setNieruchomoscId(Long nieruchomoscId) {
         this.nieruchomoscId = nieruchomoscId;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 }

@@ -1,12 +1,11 @@
 package com.estate.estatesystem.controllers;
 
 import com.estate.estatesystem.models.other.Ogloszenie;
+import com.estate.estatesystem.models.other.WpisNaStronie;
 import com.estate.estatesystem.models.utility.OprowadzajacyGuiData;
 import com.estate.estatesystem.models.utility.SellInfo;
 import com.estate.estatesystem.models.utility.Status;
-import com.estate.estatesystem.services.NieruchomoscService;
-import com.estate.estatesystem.services.OgloszenieService;
-import com.estate.estatesystem.services.OprowadzajacyService;
+import com.estate.estatesystem.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,10 +26,18 @@ public class OprowadzajacyController {
     @Autowired
     private final OprowadzajacyService oprowadzajacyService;
 
-    public OprowadzajacyController(OgloszenieService ogloszenieService, NieruchomoscService nieruchomoscService, OprowadzajacyService oprowadzajacyService) {
+    @Autowired
+    private final StronaService stronaService;
+
+    @Autowired
+    private final WpisService wpisService;
+
+    public OprowadzajacyController(OgloszenieService ogloszenieService, NieruchomoscService nieruchomoscService, OprowadzajacyService oprowadzajacyService, StronaService stronaService, WpisService wpisService) {
         this.ogloszenieService = ogloszenieService;
         this.nieruchomoscService = nieruchomoscService;
         this.oprowadzajacyService = oprowadzajacyService;
+        this.stronaService = stronaService;
+        this.wpisService = wpisService;
     }
 
     @PostMapping("agents/selectAgent")
@@ -56,6 +63,11 @@ public class OprowadzajacyController {
         ogloszenie.setNieruchomosc(estate);
         ogloszenie.setOpis(sellInfo.getData());
 
+        var website = stronaService.getWebsiteByAddress(sellInfo.getWebsite());
+
+        var wpis = WpisNaStronie.create(ogloszenie, sellInfo.getWebsite(), website.get(0).getOplata());
+
+        wpisService.saveWpis(wpis);
         ogloszenieService.addOgloszenie(ogloszenie);
 
         return "confirmation";

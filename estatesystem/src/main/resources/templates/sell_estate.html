@@ -10,6 +10,11 @@
 <div align="center">
     <h2 style="color: white">Dodaj opis nieruchomości</h2>
     <form action="#" th:action="@{/api/agents/selectAgent}" method="post" th:object="${sellInfo}">
+        <label>Website:</label>
+        <select th:field="*{website}">
+            <option th:each="w : ${listWebsites}" th:value="${w.adres}" th:text="${w.adres}" />
+        </select>
+        <br/>
         <textarea rows="20" cols="50" th:field="*{data}"></textarea>
         <br>
         <input type="text" th:field="*{nieruchomoscId}"><br/>
