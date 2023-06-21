@@ -52,4 +52,6 @@ public class Oprowadzajacy extends Pracownik{
     public Set<Ogloszenie> getOgloszenieSet() {
         return ogloszenieSet;
     }
+
+
 }

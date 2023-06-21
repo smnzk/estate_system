@@ -6,18 +6,29 @@ import jakarta.persistence.*;
 @Table(name = "WpisNaStronie")
 public class WpisNaStronie {
 
+    public static WpisNaStronie create(Ogloszenie ogloszenie, String adresStronyInternetowej, double pobieranaOplata) {
+        WpisNaStronie wpisNaStronie = new WpisNaStronie(adresStronyInternetowej, pobieranaOplata);
+        wpisNaStronie.setOgloszenie(ogloszenie);
+        ogloszenie.getWpisNaStronieSet().add(wpisNaStronie);
+        return wpisNaStronie;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String adresStronyInternetowej;
     private double pobieranaOplata;
 
-    public WpisNaStronie(String adresStronyInternetowej, double pobieranaOplata) {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ogloszenie_id", referencedColumnName = "id")
+    private Ogloszenie ogloszenie;
+
+    private WpisNaStronie(String adresStronyInternetowej, double pobieranaOplata) {
         this.adresStronyInternetowej = adresStronyInternetowej;
         this.pobieranaOplata = pobieranaOplata;
     }
 
-    public WpisNaStronie(){
+    private WpisNaStronie(){
 
     }
 
@@ -44,4 +55,14 @@ public class WpisNaStronie {
     public void setPobieranaOplata(double pobieranaOplata) {
         this.pobieranaOplata = pobieranaOplata;
     }
+
+    public Ogloszenie getOgloszenie() {
+        return ogloszenie;
+    }
+
+    public void setOgloszenie(Ogloszenie ogloszenie) {
+        this.ogloszenie = ogloszenie;
+    }
 }
+
+

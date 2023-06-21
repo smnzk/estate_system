@@ -36,6 +36,11 @@ public class Ogloszenie {
     @JoinColumn(name = "nieruchomosc_id", referencedColumnName = "id")
     private Nieruchomosc nieruchomosc;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "ogloszenie")
+    private Set<WpisNaStronie> wpisNaStronieSet = new HashSet<>();
+
+
     public Ogloszenie(LocalDate dataWystawienia, LocalDate dataZakonczenia, Status status) {
         this.dataWystawienia = dataWystawienia;
         this.dataZakonczenia = dataZakonczenia;
@@ -102,5 +107,9 @@ public class Ogloszenie {
 
     public void setNieruchomosc(Nieruchomosc nieruchomosc) {
         this.nieruchomosc = nieruchomosc;
+    }
+
+    public Set<WpisNaStronie> getWpisNaStronieSet() {
+        return wpisNaStronieSet;
     }
 }

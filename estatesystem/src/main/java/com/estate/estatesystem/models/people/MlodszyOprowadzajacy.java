@@ -11,19 +11,22 @@ import java.util.List;
 public class MlodszyOprowadzajacy extends Oprowadzajacy{
 
     private double bonusOdOpinii;
-    private double calkowitaPensja;
 
-    public MlodszyOprowadzajacy(String imie, String nazwisko, String adres, String numberTelefonu, Integer numerPracownika, double wynagrodzenie, String hasloDoSystemu, Specjalizacja specjalizacja, List<String> jezyki, double bonusOdOpinii, double calkowitaPensja) throws Exception {
+    public MlodszyOprowadzajacy(String imie, String nazwisko, String adres, String numberTelefonu, Integer numerPracownika, double wynagrodzenie, String hasloDoSystemu, Specjalizacja specjalizacja, List<String> jezyki, double bonusOdOpinii) throws Exception {
         super(imie, nazwisko, adres, numberTelefonu, numerPracownika, wynagrodzenie, hasloDoSystemu, specjalizacja, jezyki);
         if (bonusOdOpinii > 0.2) {
             throw new Exception("Bonus nie może być większy niż 20%");
         }
         this.bonusOdOpinii = bonusOdOpinii;
-        this.calkowitaPensja = calkowitaPensja;
     }
 
     public MlodszyOprowadzajacy() {
 
+    }
+
+    public MlodszyOprowadzajacy(Sprzedawca sprzedawca, double bonusOdOpinii) throws Exception {
+        super(sprzedawca.getImie(), sprzedawca.getNazwisko(), sprzedawca.getAdres(), sprzedawca.getNumberTelefonu(), sprzedawca.getNumerPracownika(), sprzedawca.getWynagrodzenie(), sprzedawca.getHasloDoSystemu(), sprzedawca.getSpecjalizacja(), sprzedawca.getJezyki());
+        this.bonusOdOpinii = bonusOdOpinii;
     }
 
     public double getBonusOdOpinii() {
@@ -38,10 +41,7 @@ public class MlodszyOprowadzajacy extends Oprowadzajacy{
     }
 
     public double getCalkowitaPensja() {
-        return calkowitaPensja;
+        return this.getWynagrodzenie() * (1+bonusOdOpinii);
     }
 
-    public void setCalkowitaPensja(double calkowitaPensja) {
-        this.calkowitaPensja = calkowitaPensja;
-    }
 }
