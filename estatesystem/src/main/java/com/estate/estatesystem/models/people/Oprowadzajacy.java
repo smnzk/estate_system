@@ -15,6 +15,7 @@ import java.util.Set;
 public class Oprowadzajacy extends Pracownik{
     private Specjalizacja specjalizacja;
     private List<String> jezyki;
+    private boolean zbytZajety = false;
 
     @JsonIgnore
     @OneToMany(mappedBy = "oprowadzajacy")
@@ -53,5 +54,11 @@ public class Oprowadzajacy extends Pracownik{
         return ogloszenieSet;
     }
 
+    public boolean isZbytZajety() {
+        return zbytZajety;
+    }
 
+    public void setZbytZajety(boolean zbytZajety) {
+        this.zbytZajety = zbytZajety;
+    }
 }

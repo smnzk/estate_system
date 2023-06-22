@@ -58,6 +58,10 @@ public class OprowadzajacyController {
         var oprowadzajacyOpt = oprowadzajacyService.getOprowadzajacyById(agentId);
         var oprowadzajacy = oprowadzajacyOpt.get();
 
+        if (oprowadzajacy.isZbytZajety()) {
+            return "agent_cannot";
+        }
+
         Ogloszenie ogloszenie = new Ogloszenie(LocalDate.now(), LocalDate.now().plusMonths(4), Status.W_TRAKCIE_REALIZACJI);
         ogloszenie.setOprowadzajacy(oprowadzajacy);
         ogloszenie.setNieruchomosc(estate);

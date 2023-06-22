@@ -25,17 +25,17 @@
         <td th:text="${agent.oprowadzajacy.nazwisko}"></td>
         <td th:text="${agent.oprowadzajacy.numberTelefonu}"></td>
         <td><form action="#" th:action="${agent.link}" method="post" th:object="${sellInfo}">
-            <input type="text" th:field="*{data}"><br/>
-            <input type="text" th:field="*{nieruchomoscId}"><br/>
-            <input type="text" th:field="*{website}"><br/>
-            <input type="submit" value="Wybierz" />
+            <input style="border: none; color: white; background-color: gray" type="text" th:field="*{data}"><br/>
+            <input style="border: none; color: white; background-color: gray" type="text" th:field="*{nieruchomoscId}"><br/>
+            <input style="border: none; color: white; background-color: gray" type="text" th:field="*{website}"><br/>
+            <input  style="border: none; color: white; background-color: gray" type="submit" value="Wybierz" />
         </form></td>
     </tr>
     </tbody>
 </table>
 <br>
 <form action="#" th:action="@{out}" method="get">
-    <input type="submit" value="ANULUJ" />
+    <input style="border: none; color: white; background-color: gray" type="submit" value="ANULUJ" />
 </form>
 </body>
 </html>

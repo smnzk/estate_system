@@ -39,6 +39,9 @@ public class NieruchomoscController {
 
     @GetMapping("estates/sell/{estateId}")
     String sellEstate(Model model, @PathVariable long estateId) {
+        if (nieruchomoscService.getEstateById(estateId).get().getCena() == 0) {
+            return "error_page";
+        }
         SellInfo sellInfo = new SellInfo();
         sellInfo.setNieruchomoscId(estateId);
         var listWebsites = stronaService.getAllWebsites();

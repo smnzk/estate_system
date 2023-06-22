@@ -26,14 +26,14 @@
         <td th:text="${owner.osoba.nazwisko}"></td>
         <td th:text="${owner.osoba.numberTelefonu}"></td>
         <td><form action="#" th:action="${owner.link}" method="get">
-            <input type="submit" value="Wybierz" />
+            <input style="border: none; color: white; background-color: gray" type="submit" value="Wybierz" />
         </form></td>
     </tr>
     </tbody>
 </table>
 <br>
 <form action="#" th:action="@{out}" method="get">
-    <input type="submit" value="ANULUJ" />
+    <input style="border: none; color: white; background-color: gray" type="submit" value="ANULUJ" />
 </form>
 </body>
 </html>

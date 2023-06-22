@@ -1,6 +1,7 @@
 package com.estate.estatesystem.models.other;
 
 import com.estate.estatesystem.models.people.WlascicielNieruchomosci;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 @Entity
